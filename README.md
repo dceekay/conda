@@ -1,5 +1,3 @@
-```markdown
-# Conda
 
 **Conda** is a simple contact form application built with a Laravel backend and a Vue.js frontend. The project is styled using TailwindCSS and is fully Dockerized for easy setup and deployment.
 
