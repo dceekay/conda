@@ -1,66 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Conda - Contact Form Application
+Overview
+Welcome to the Conda project! 🎉 This is an exciting opportunity to showcase my skills with a simple yet powerful contact form application built with a Laravel back-end and a Vue.js front-end. This project is styled using TailwindCSS, with Docker to make the setup a breeze. Let's dive in!
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Getting Started
+1. Setting Up the Backend (Laravel)
+Prerequisites
+Before you start, make sure you have these installed:
 
-## About Laravel
+PHP 8.x: The backbone of the Laravel application.
+Composer: For managing PHP dependencies.
+Docker & Docker Compose: To easily run the application in a containerized environment.
+Installation Steps
+Clone the Repository
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Start by cloning the project repository and navigating into the project directory:
+bash
+Copy code
+git clone https://github.com/dceekay/conda.git
+cd conda
+Configure Your Environment
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Copy the example environment file and make the necessary adjustments:
+bash
+Copy code
+cp .env.example .env
+Open .env and configure your database, mail settings, and other environment variables.
+Install PHP Dependencies
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Install the required PHP packages using Composer:
+bash
+Copy code
+composer install
+Run Migrations
 
-## Learning Laravel
+Set up your database tables by running the migrations:
+bash
+Copy code
+php artisan migrate
+Start the Docker Containers
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Spin up the Docker containers to run the Laravel application along with MySQL and Mailhog:
+bash
+Copy code
+docker-compose up -d
+Access the Backend
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Your Laravel API is now running! You can access it at:
+API: http://localhost:8000/api/contact
+Mailhog (for email testing): http://localhost:8025
+2. Setting Up the Frontend (Vue.js)
+Prerequisites
+To run the front-end, make sure you have:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Node.js & npm: Essential for managing front-end dependencies and running the development server.
+Installation Steps
+Navigate to the Frontend Directory
 
-## Laravel Sponsors
+Head over to the Vue.js front-end directory:
+bash
+Copy code
+cd /path/to/contact-form
+Install Node Dependencies
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Use npm to install all necessary packages:
+bash
+Copy code
+npm install
+Run the Development Server
 
-### Premium Partners
+Start the development server and see the magic happen:
+bash
+Copy code
+npm run serve
+Access the Frontend
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+The front-end application will be accessible at:
+Frontend: http://localhost:8080
+3. Testing Your Application
+Backend Testing
+To ensure everything is working as expected on the back-end, run the Laravel test suite:
+bash
+Copy code
+php artisan test
+Frontend Testing
+You can manually test the contact form functionality by interacting with it through the browser.
+Docker Setup
+This project is Docker-ready, with a Dockerfile and docker-compose.yml included to make your life easier. With Docker, you can get the Laravel back-end, MySQL database, and Mailhog email testing service up and running in no time.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Conclusion
+I'm excited to share this project, and I hope it meets the expectations! This setup provides a seamless development experience with a full-stack Vue.js and Laravel application. If there's anything else you'd like to see or any improvements that can be made, I'm all ears. Here's to hoping for success with this task! 🤞
