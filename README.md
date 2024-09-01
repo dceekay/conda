@@ -1,125 +1,78 @@
+# Conda Challenge - Contact Form API
 
-# Conda Assessment
-
-**Conda Assessment** is a contact form application showcasing a Laravel backend and a Vue.js frontend. Styled with TailwindCSS and fully Dockerized, this project demonstrates modern web development practices and deployment techniques.
+This repository contains a simple contact form built with Vue.js on the frontend and a Laravel API backend. The project is dockerized for easy setup and includes features like form validation, email sending, and basic error handling.
 
 ## Features
 
-### Frontend
+- **Vue.js**: Modern JavaScript framework for building the frontend.
+- **Laravel**: PHP framework for the backend API.
+- **TailwindCSS**: Utility-first CSS framework for styling.
+- **Docker**: Containerization for easy setup.
+- **MailHog**: Email testing tool used for capturing and viewing emails sent by the application.
 
-- A responsive contact form with fields for Name, Email, Subject, and Message.
-- Client-side validation using Vue.js to ensure all fields are correctly filled.
-- Modern and clean user interface styled with TailwindCSS.
+## Prerequisites
 
-### Backend
+Make sure you have the following installed:
 
-- A robust Laravel API that handles form submissions.
-- Server-side validation for enhanced security and reliability.
-- Form data is stored in a MySQL database (`contacts` table).
-- Confirmation emails are sent using Mailhog for local testing.
-- JSON responses indicate the success or failure of form submissions.
-- Includes unit tests to ensure API functionality and reliability.
+- Docker and Docker Compose
+- Node.js and npm
+- PHP and Composer
 
-### Dockerized
+## Setup
 
-- The application is fully Dockerized for easy setup and deployment.
-- Docker containers include services for the Laravel backend, Vue.js frontend, MySQL database, and Mailhog for email testing.
+### Backend (Laravel API)
 
-## Getting Started
-
-### Prerequisites
-
-Ensure you have the following software installed:
-
-- **Docker**: To containerize the application.
-- **Docker Compose**: To manage multi-container Docker applications.
-
-### Installation
-
-1. **Clone the Repository**:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/dceekay/conda.git
    cd conda
-   ```
+Build and start the Docker containers:
 
-2. **Set Up the Environment**:
+bash
+Copy code
+docker-compose up --build
+Run migrations to set up the database:
 
-   Copy the example environment file and configure it:
+bash
+Copy code
+docker-compose exec app php artisan migrate
+If needed, seed the database:
 
-   ```bash
-   cp backend/.env.example backend/.env
-   ```
+bash
+Copy code
+docker-compose exec app php artisan db:seed
+Your Laravel API should now be running at http://localhost:8000.
 
-   Edit the `.env` file in the `backend` directory with your database and email settings.
+Frontend (Vue.js)
+Navigate to the frontend directory:
 
-3. **Install Backend Dependencies**:
+bash
+Copy code
+cd frontend
+Install the dependencies:
 
-   Navigate to the backend directory and install PHP dependencies:
+bash
+Copy code
+npm install
+Start the development server:
 
-   ```bash
-   cd backend
-   composer install
-   ```
+bash
+Copy code
+npm run serve
+Open your browser and go to http://localhost:8080 to view the application.
 
-4. **Install Frontend Dependencies**:
+Usage
+Contact Form: Fill out the form and submit. The data will be validated, saved to the database, and an email will be sent using MailHog.
+MailHog: Access MailHog's web interface at http://localhost:8025 to view sent emails.
+Testing
+To run the tests for the Laravel API:
 
-   Navigate to the frontend directory and install Node.js dependencies:
+bash
+Copy code
+docker-compose exec app php artisan test
+Contributing
+If you'd like to contribute, please fork the repository and make changes as you'd like. Pull requests are warmly welcome.
 
-   ```bash
-   cd ../frontend
-   npm install
-   ```
-
-5. **Run Migrations**:
-
-   Create the necessary database tables using Laravel migrations:
-
-   ```bash
-   docker-compose exec backend php artisan migrate
-   ```
-
-6. **Start Docker Containers**:
-
-   Launch the application with Docker Compose:
-
-   ```bash
-   docker-compose up -d
-   ```
-
-   This command starts the backend, frontend, MySQL, and Mailhog services.
-
-## Usage
-
-- **API Endpoint**: Access the contact form API at [http://localhost:8000/api/contact](http://localhost:8000/api/contact).
-- **Frontend**: Interact with the frontend application at [http://localhost:8080](http://localhost:8080).
-- **Mailhog**: View sent emails at [http://localhost:8025](http://localhost:8025).
-
-### Testing
-
-- **Run Backend Tests**:
-
-  Verify API functionality with Laravel's unit tests:
-
-  ```bash
-  docker-compose exec backend php artisan test
-  ```
-
-## Project Structure
-
-- **`backend/`**: Contains the Laravel backend application.
-- **`frontend/`**: Contains the Vue.js frontend application.
-- **`docker-compose.yml`**: Manages Docker containers for the application.
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork this repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request.
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
-```
+License
+This project is licensed under the MIT License.
