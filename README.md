@@ -69,6 +69,7 @@ Ensure you have the following software installed:
    ```bash
    cd ../frontend
    npm install
+   npm run serve
    ```
 
 5. **Run Migrations**:
@@ -76,7 +77,8 @@ Ensure you have the following software installed:
    Create the necessary database tables using Laravel migrations:
 
    ```bash
-   docker-compose exec backend php artisan migrate
+   cd ../backend
+   docker exec -it laravel_app php artisan migrate
    ```
 
 6. **Start Docker Containers**:
@@ -111,13 +113,6 @@ Ensure you have the following software installed:
 - **`frontend/`**: Contains the Vue.js frontend application.
 - **`docker-compose.yml`**: Manages Docker containers for the application.
 
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork this repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request.
 
 ## License
 
